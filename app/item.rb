@@ -6,4 +6,9 @@ class Item
     @price = price
     @@items[name] = price
   end
+
+  def self.items
+    @@items
+  end
+
 end
