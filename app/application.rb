@@ -6,9 +6,14 @@ class Application
     req = Rack::Response.new(env)
 
     if req.path.match(/items/)
+      path = req.path.split("/songs/").last
 
-
-      resp.write Item.items[path]
+      if Item.items.keys.include?(path) == true
+        resp.write Item.items[path]
+      else
+        resp.write "Item not found"
+        resp.status = 400
+      end
 
     else
       resp.write "404 route not found"
