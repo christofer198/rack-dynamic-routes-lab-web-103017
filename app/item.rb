@@ -4,6 +4,6 @@ class Item
   def initialize(name,price)
     @name = name
     @price = price
-    @@item[name] = price
+    @@items[name] = price
   end
 end
