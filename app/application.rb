@@ -6,10 +6,10 @@ class Application
     req = Rack::Response.new(env)
 
     if req.path.match(/items/)
-      path = req.path.split("/items/").last
+      uitem = req.path.split("/items/").last
 
-      if Item.items.keys.include?(path) == true
-        resp.write Item.items[path]
+      if Item.items.keys.include?(uitem) == true
+        resp.write Item.items[uitem]
       else
         resp.write "Item not found"
         resp.status = 400
