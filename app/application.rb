@@ -6,7 +6,7 @@ class Application
     req = Rack::Response.new(env)
 
     if req.path.match(/items/)
-      item = req.path.split("/items/").last
+      path= req.path.split("/items/").last
 
       if Item.items.keys.include?(path) == true
         resp.write Item.items[path]
